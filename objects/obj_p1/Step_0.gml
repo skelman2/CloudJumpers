@@ -36,6 +36,25 @@ y_spd += grav;
 
 
 
+if (global.p1has_ball == false){
+jump_spd = -6;	
+}
+if (global.p1_score >10) and (global.p1has_ball == true){
+jump_spd = -5;	
+}
+if (global.p1_score >20) and (global.p1has_ball == true){
+jump_spd = -4.5;
+}
+if (global.p1_score >30) and (global.p1has_ball == true){
+jump_spd = -4;	
+}
+if (global.p1_score >40) and (global.p1has_ball == true){
+jump_spd = -3.75;	
+}
+if (global.p1_score >50) and (global.p1has_ball == true){
+jump_spd = -3.5;	
+}
+
 var new_y;
 //only collide if going down
 if (y_spd > 0){
@@ -135,4 +154,7 @@ if (y > room_height+50){
 
 
 //restart if you press R
-if (keyboard_check_pressed(ord("R"))) room_restart();
+if (keyboard_check_pressed(ord("R"))){
+	part_emitter_destroy_all(parts);
+	room_restart();
+}

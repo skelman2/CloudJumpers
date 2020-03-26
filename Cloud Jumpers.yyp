@@ -551,6 +551,14 @@
             }
         },
         {
+            "Key": "e575be1b-56ce-4466-956d-2315b0d26e19",
+            "Value": {
+                "id": "193f6f95-852d-425c-9be8-585cc4c3ebf9",
+                "resourcePath": "sounds\/snd_grow\/snd_grow.yy",
+                "resourceType": "GMSound"
+            }
+        },
+        {
             "Key": "e8b0d9a2-0943-47c1-988a-8ed14a7437bf",
             "Value": {
                 "id": "4c69deb8-0b20-4758-8d16-34a4bac3db46",

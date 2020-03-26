@@ -34,6 +34,25 @@ if (x > room_width - 16) {
 y_spd += grav;
 
 
+if (global.p2has_ball == false){
+jump_spd = -6;	
+}
+if (global.p2_score >10) and (global.p2has_ball == true){
+jump_spd = -5;	
+}
+if (global.p2_score >20) and (global.p2has_ball == true){
+jump_spd = -4.5;	
+}
+if (global.p2_score >30) and (global.p2has_ball == true){
+jump_spd = -4;	
+}
+if (global.p2_score >40) and (global.p2has_ball == true){
+jump_spd = -3.75;	
+}
+if (global.p2_score >50) and (global.p2has_ball == true){
+jump_spd = -3.5;	
+}
+
 
 var new_y;
 //only collide if going down

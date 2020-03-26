@@ -56,7 +56,7 @@ if (global.spawn_timer >200){
 
 
 
-if (global.p1_score == 10){
+if (global.p1_score == 60){
 	part_emitter_destroy_all(parts);
 	instance_destroy(obj_p2);
 	instance_destroy(obj_p1);
@@ -76,7 +76,7 @@ if (global.p1_score == 10){
 		}
 	}
 }
-if (global.p2_score == 10){
+if (global.p2_score == 60){
 	part_emitter_destroy_all(parts);
 	instance_destroy(obj_p2);
 	instance_destroy(obj_p1);
@@ -120,7 +120,8 @@ if (global.spawn_timer < 599 and global.spawn_timer > 597){
 audio_play_sound(snd_beepLow,4,false);		
 }
 if (global.spawn_timer < 549 and global.spawn_timer > 547){
-audio_play_sound(snd_beepHigh,4,false);		
+audio_sound_pitch(snd_beepLow, 2);
+audio_play_sound(snd_beepLow,4,false);			
 }
 
 
@@ -130,12 +131,14 @@ audio_play_sound(snd_beepHigh,4,false);
 //particles
 if (global.p2has_ball == true){
 part_type_color1(sparkle,c_orange);
+part_emitter_region(parts,emitter,obj_p2.x+8,obj_p2.x+10,obj_p2.y+10,obj_p2.y+12,ps_shape_ellipse,ps_distr_gaussian);
 }
 if (global.p1has_ball == true){
 part_type_color1(sparkle,c_lime);
+part_emitter_region(parts,emitter,obj_p1.x+8,obj_p1.x+10,obj_p1.y+10,obj_p1.y+12,ps_shape_ellipse,ps_distr_gaussian);
 }
-part_emitter_region(parts,emitter,obj_ball.x-8,obj_ball.x-7,obj_ball.y + 30,obj_ball.y+32,ps_shape_ellipse,ps_distr_gaussian);
 part_emitter_stream(parts,emitter,sparkle,1);
+
 
 
 //part_particles_create(parts,obj_ball.x,obj_ball.y,sparkle,5);

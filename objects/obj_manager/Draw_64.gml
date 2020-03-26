@@ -28,14 +28,14 @@ if (global.spawn_timer < 800){
 
 if (global.p1_win == true){
 draw_set_color(c_lime);
-draw_text(110,175,"Player   One   Wins !");	
+draw_text(230,175,"Green    Wins !");	
 draw_set_font(font_info);
 draw_text(300,300,"Press   'R'   to   Restart");
 }
 
 if (global.p2_win == true){
 draw_set_color(c_orange);
-draw_text(110,175,"Player   Two   Wins !");	
+draw_text(230,175,"Orange    Wins !");	
 draw_set_font(font_info);
 draw_text(300,300,"Press   'R'   to   Restart");
 }

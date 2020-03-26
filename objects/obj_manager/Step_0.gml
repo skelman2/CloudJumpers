@@ -56,7 +56,8 @@ if (global.spawn_timer >200){
 
 
 
-if (global.p1_score == 60){
+if (global.p1_score == 10){
+	part_emitter_destroy_all(parts);
 	instance_destroy(obj_p2);
 	instance_destroy(obj_p1);
 	global.p1has_ball = false;
@@ -65,6 +66,9 @@ if (global.p1_score == 60){
 	instance_create_layer(34,(room_height/2)+50,"Stars",obj_confetti);
 	instance_create_layer(98,(room_height/2)+50,"Stars",obj_confetti);
 	instance_create_layer(162,(room_height/2)+50,"Stars",obj_confetti);
+	if (obj_confetti.image_index >= 6){
+	instance_destroy(obj_confetti);	
+	}
 	if (sound_timer > 0){
 		sound_timer--;
 		if (sound_timer <10 and sound_timer >0){
@@ -72,7 +76,8 @@ if (global.p1_score == 60){
 		}
 	}
 }
-if (global.p2_score == 60){
+if (global.p2_score == 10){
+	part_emitter_destroy_all(parts);
 	instance_destroy(obj_p2);
 	instance_destroy(obj_p1);
 	global.p2has_ball = false;
@@ -81,7 +86,9 @@ if (global.p2_score == 60){
 	instance_create_layer(34,(room_height/2)+50,"Stars",obj_confetti);
 	instance_create_layer(98,(room_height/2)+50,"Stars",obj_confetti);
 	instance_create_layer(162,(room_height/2)+50,"Stars",obj_confetti);
-	
+	if (obj_confetti.image_index >= 6){
+	instance_destroy(obj_confetti);	
+	}
 	if (sound_timer > 0){
 		sound_timer--;
 		if (sound_timer <3 and sound_timer >0){
@@ -115,3 +122,20 @@ audio_play_sound(snd_beepLow,4,false);
 if (global.spawn_timer < 549 and global.spawn_timer > 547){
 audio_play_sound(snd_beepHigh,4,false);		
 }
+
+
+
+
+
+//particles
+if (global.p2has_ball == true){
+part_type_color1(sparkle,c_orange);
+}
+if (global.p1has_ball == true){
+part_type_color1(sparkle,c_lime);
+}
+part_emitter_region(parts,emitter,obj_ball.x-8,obj_ball.x-7,obj_ball.y + 30,obj_ball.y+32,ps_shape_ellipse,ps_distr_gaussian);
+part_emitter_stream(parts,emitter,sparkle,1);
+
+
+//part_particles_create(parts,obj_ball.x,obj_ball.y,sparkle,5);
